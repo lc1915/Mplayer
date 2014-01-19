@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
@@ -19,7 +20,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public class SampleListFragment extends ListFragment {
 
 	ListView musicListView;
-	private SimpleAdapter mAdapter;
+	private ListAdapter mAdapter;
 	static int listPosition = 0;
 	static int i;
 	String duration;
@@ -52,10 +53,7 @@ public class SampleListFragment extends ListFragment {
 			mp3list.add(map);
 		}
 
-		mAdapter = new SimpleAdapter(getActivity(), mp3list,
-				android.R.layout.simple_list_item_2, new String[] { "title",
-						"duration" }, new int[] { android.R.id.text1,
-						android.R.id.text2 });
+		mAdapter = new ListAdapter(getActivity());
 		musicListView.setAdapter(mAdapter);
 
 		// 给listview的每一个item添加点击事件
@@ -65,6 +63,16 @@ public class SampleListFragment extends ListFragment {
 					int position, long id) {
 				listPosition = position;
 				playMusic(listPosition);
+			}
+		});
+
+		musicListView.setOnItemLongClickListener(new OnItemLongClickListener() {
+			@Override
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				mAdapter.changeImageVisable(arg1, arg2);
+				// TODO Auto-generated method stub
+				return true;
 			}
 		});
 
