@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/center_frame"
+    android:background="#a1a3a5"
+    android:layout_width="100dip"
+    android:layout_height="100dip" />

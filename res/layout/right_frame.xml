@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/right_frame"
+    android:background="#2a5b1d"
+    android:layout_width="300dip"
+    android:layout_height="fill_parent" />
